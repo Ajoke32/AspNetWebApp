@@ -22,12 +22,14 @@ namespace GreetingWebApp.Controllers
 
         public IActionResult Greeting(string name)
         {
-            if (name != null)
+            
+            var user = new User() { Id = 1, Name = name };
+            if(ModelState.IsValid)
             {
-                var user = new User() { Id = 1, Name = name };
                 return View(user);
             }
-            return Redirect("Index");
+
+            return View("Index",user);
         }
         public IActionResult Privacy()
         {

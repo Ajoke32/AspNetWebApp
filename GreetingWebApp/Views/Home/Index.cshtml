@@ -1,15 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model GreetingWebApp.Models.User
 
-
-<div class="text-center">
-    <h1 class="display-4" style="margin-bottom:25px;">Enter you name</h1>
-    <form method="post" asp-controller="Home" asp-action="Greeting">
-         
-         <input type="text" id="name" name="name"/>
-
+<div style="width:500px;margin:100px auto;">
+    <h1 class="text-center" style="margin-bottom:25px;">Enter you name</h1>
+    <form method="post" asp-controller="Home" asp-action="Greeting" class="row g-2 mb-3">
+        <input type="text" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
          <input type="submit" value="send"/>
      </form>
-
 </div>
+
